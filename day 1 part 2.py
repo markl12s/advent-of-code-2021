@@ -1,5 +1,4 @@
 measurments = measurment_string.split("\n")
-print(measurments)
 
 increases = 0
 
