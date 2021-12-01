@@ -1,6 +1,4 @@
 measurments = measurment_string.split("\n")
-print(measurments)
-
 increases = 0
 
 for i in range(len(measurments) - 1):
