@@ -1,11 +1,30 @@
-measurments = measurment_string.split("\n")
-increases = 0
+# find inputs
+file = open('/home/mark/PycharmProjects/adventOfCode/sonarSweepInput.txt', 'r')
+dataArray = []
+total = 0
 
-for i in range(len(measurments) - 3):
-    window_a = int(measurments[i]) + int(measurments[i + 1]) + int(measurments[i + 2])
-    window_b = int(measurments[i + 1]) + int(measurments[i + 2]) + int(measurments[i + 3])
+# test by reading file
+dataString = file.read()
+dataArray = dataString.split('\n')
 
-    if window_a < window_b:
-        increases += 1
+# convert to integer
+def toInt(inputString):
+    return int(inputString)
 
-print(increases)
+for i in range(len(dataArray) - 1):
+    if i > 2:
+        num1 = toInt(dataArray[i - 3])
+        num2 = toInt(dataArray[i - 2])
+        num3 = toInt(dataArray[i - 1])
+        num4 = toInt(dataArray[i])
+
+        window1 = num1 + num2 + num3
+        window2 = num2 + num3 + num4
+
+        if window1 < window2:
+            total += 1
+
+print(total)
+
+# close file
+file.close()
